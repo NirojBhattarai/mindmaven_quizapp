@@ -67,4 +67,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     nextButton.classList.remove("hidden");
   }
+
+  function showResult() {
+    questionContainer.classList.add("hidden");
+    resultContainer.classList.remove("hidden");
+    scoreDisplay.textContent = `${score} out of ${questions.length}`;
+  }
 });
