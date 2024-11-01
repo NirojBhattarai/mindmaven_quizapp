@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const choicesList = document.getElementById("choices-list");
   const nextButton = document.getElementById("next-btn");
   const resultContainer = document.getElementById("result-container");
-  const score = document.getElementById("score");
+  const scoreDisplay = document.getElementById("score");
   const restartButton = document.getElementById("restart-btn");
   const startButton = document.getElementById("start-btn");
 
@@ -26,4 +26,16 @@ document.addEventListener("DOMContentLoaded", () => {
       answer: "29032",
     },
   ];
+
+  let currentQuestionIndex = 0;
+  let score = 0;
+
+  startButton.addEventListener("click", startQuiz);
+
+  function startQuiz() {
+    startButton.classList.add("hidden");
+    resultContainer.classList.add("hidden");
+    questionContainer.classList.remove("hidden");
+    showQuestion();
+  }
 });
