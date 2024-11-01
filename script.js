@@ -32,10 +32,39 @@ document.addEventListener("DOMContentLoaded", () => {
 
   startButton.addEventListener("click", startQuiz);
 
+  nextButton.addEventListener("click", () => {
+    currentQuestionIndex++;
+    if (currentQuestionIndex < questions.length) {
+      showQuestion();
+    } else {
+      showResult();
+    }
+  });
+
   function startQuiz() {
     startButton.classList.add("hidden");
     resultContainer.classList.add("hidden");
     questionContainer.classList.remove("hidden");
     showQuestion();
+  }
+
+  function showQuestion() {
+    nextButton.classList.add("hidden");
+    questionText.textContent = questions[currentQuestionIndex].question;
+    choicesList.innerHTML = "";
+    questions[currentQuestionIndex].choices.forEach((choice) => {
+      const li = document.createElement("li");
+      li.innerHTML = `${choice}`;
+      choicesList.appendChild(li);
+      li.addEventListener("click", () => selectAnswer(choice));
+    });
+  }
+
+  function selectAnswer(choice) {
+    const correctAnswer = questions[currentQuestionIndex].answer;
+    if (choice === correctAnswer) {
+      score++;
+    }
+    nextButton.classList.remove("hidden");
   }
 });
