@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const quizContainer = document.getElementById("quiz-container");
   const questionContainer = document.getElementById("question-container");
   const questionText = document.getElementById("question-text");
   const choicesList = document.getElementById("choices-list");
@@ -46,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
     score = 0;
     resultContainer.classList.add("hidden");
     questionContainer.classList.remove("hidden");
-    showQuestion();
+    startQuiz();
   });
 
   function startQuiz() {
