@@ -41,6 +41,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  restartButton.addEventListener("click", () => {
+    currentQuestionIndex = 0;
+    score = 0;
+    resultContainer.classList.add("hidden");
+    questionContainer.classList.remove("hidden");
+    showQuestion();
+  });
+
   function startQuiz() {
     startButton.classList.add("hidden");
     resultContainer.classList.add("hidden");
